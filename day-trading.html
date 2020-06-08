@@ -31,7 +31,12 @@
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<input type="number" id="stock" class="form-control" placeholder="股數(1000)" value="1000">
+								<div class="input-group">
+									<input type="number" id="stock" class="form-control">
+									<div class="input-group-append">
+										<span class="input-group-text">股</span>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -57,7 +62,7 @@
 			let sell = $('#sell');
 			let stock = $('#stock');
 			let profit = $('#profit');
-			$('#dayTrading').on('change', function(){
+			$('#dayTrading').on('keyup change', function(){
 				let buyOriginalTotal = buy.val() * stock.val();
 				let buyFee = Math.max(Math.round(buyOriginalTotal * 0.001425), 20);
 				let buyRealTotal = buyOriginalTotal + buyFee;
